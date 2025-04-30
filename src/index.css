@@ -1,70 +1,67 @@
 @import "tailwindcss";
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Eerie Black */
+  --eerie-black: #1c1c1c;
+  --eerie-black-100: #060606;
+  --eerie-black-200: #0b0b0b;
+  --eerie-black-300: #111111;
+  --eerie-black-400: #161616;
+  --eerie-black-500: #1c1c1c;
+  --eerie-black-600: #494949;
+  --eerie-black-700: #777777;
+  --eerie-black-800: #a4a4a4;
+  --eerie-black-900: #d2d2d2;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Platinum */
+  --platinum: #daddd8;
+  --platinum-100: #2b2f29;
+  --platinum-200: #565e52;
+  --platinum-300: #828c7b;
+  --platinum-400: #aeb5aa;
+  --platinum-500: #daddd8;
+  --platinum-600: #e2e4e0;
+  --platinum-700: #e9ebe8;
+  --platinum-800: #f1f2f0;
+  --platinum-900: #f8f8f7;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  /* Alabaster */
+  --alabaster: #ecebe4;
+  --alabaster-100: #363427;
+  --alabaster-200: #6d684d;
+  --alabaster-300: #9f9a78;
+  --alabaster-400: #c5c2ae;
+  --alabaster-500: #ecebe4;
+  --alabaster-600: #f0efea;
+  --alabaster-700: #f4f3ef;
+  --alabaster-800: #f7f7f4;
+  --alabaster-900: #fbfbfa;
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  /* Anti-flash White */
+  --anti-flash-white: #eef0f2;
+  --anti-flash-white-100: #2a3036;
+  --anti-flash-white-200: #53606c;
+  --anti-flash-white-300: #81909e;
+  --anti-flash-white-400: #b8c0c8;
+  --anti-flash-white-500: #eef0f2;
+  --anti-flash-white-600: #f1f3f4;
+  --anti-flash-white-700: #f5f6f7;
+  --anti-flash-white-800: #f8f9fa;
+  --anti-flash-white-900: #fcfcfc;
+
+  /* Ghost White */
+  --ghost-white: #fafaff;
+  --ghost-white-100: #000065;
+  --ghost-white-200: #0000ca;
+  --ghost-white-300: #3030ff;
+  --ghost-white-400: #9595ff;
+  --ghost-white-500: #fafaff;
+  --ghost-white-600: #fbfbff;
+  --ghost-white-700: #fcfcff;
+  --ghost-white-800: #fdfdff;
+  --ghost-white-900: #fefeff;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  font-family: "Urbanist", sans-serif;
 }
