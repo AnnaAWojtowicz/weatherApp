@@ -1,7 +1,7 @@
 import SearchIcon from "@mui/icons-material/Search";
 import Button from "./Button";
 
-export default function Search({ ...props }) {
+export default function Search({ executeHandleShowSearch, ...props }) {
 
 
 
@@ -10,7 +10,7 @@ export default function Search({ ...props }) {
             <input type="text" placeholder="Search city" {...props} />
 
             <Button>
-                <SearchIcon className="text-[#1c1c1c]" />
+                <SearchIcon className="text-[#1c1c1c]" onClick={executeHandleShowSearch} />
             </Button>
         </div>
     )
