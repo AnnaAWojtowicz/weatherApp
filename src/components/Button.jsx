@@ -1,5 +1,5 @@
-export default function Button({ children }) {
+export default function Button({ children, style }) {
     return (
-        <button>{children}</button>
+        <button className={style}>{children}</button>
     )
 }
