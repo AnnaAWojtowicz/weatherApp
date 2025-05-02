@@ -2,6 +2,7 @@ import { useState } from 'react'
 import SearchIcon from "@mui/icons-material/Search";
 import City from './components/City';
 import Search from './components/Search';
+import MainPart from './components/MainPart';
 import './App.css'
 
 
@@ -25,7 +26,9 @@ function App() {
         <div className="flex flex-col max-w-[300px] justify-between">
           {showSearch ?
             <City executeHandleShowSearch={handleShowSearch} city={showSeachedCity} /> :
-            <Search value={showSeachedCity} onChange={handleShowSearchedCity} executeHandleShowSearch={handleShowSearch} />}
+            <Search value={showSeachedCity} onChange={handleShowSearchedCity} executeHandleShowSearch={handleShowSearch} />
+          }
+          <MainPart />
         </div>
       </div>
 
