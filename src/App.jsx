@@ -29,7 +29,7 @@ function App() {
             <City executeHandleShowSearch={handleShowSearch} city={showSeachedCity} /> :
             <Search value={showSeachedCity} onChange={handleShowSearchedCity} executeHandleShowSearch={handleShowSearch} />
           }
-          <MainPart />
+          {/* <MainPart /> */}
           <Details />
         </div>
       </div>
