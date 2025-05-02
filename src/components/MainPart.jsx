@@ -25,7 +25,7 @@ export default function MainPart() {
                             <div className={`${mainPartStyles.common} text-center`}>feels like 20°C</div>
                         </div>
                         <div className={`${mainPartStyles.twoLinesStyle}`}>
-                            <div className={`${mainPartStyles.common} text-sm`}>more</div>
+                            <div className={`${mainPartStyles.common} text-sm`}>details</div>
                             <div className={`${mainPartStyles.common}`}><ArrowDown /></div>
                         </div>
                     </div>

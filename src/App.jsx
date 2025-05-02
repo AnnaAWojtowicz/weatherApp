@@ -3,6 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import City from './components/City';
 import Search from './components/Search';
 import MainPart from './components/MainPart';
+import Details from './components/Details';
 import './App.css'
 
 
@@ -29,6 +30,7 @@ function App() {
             <Search value={showSeachedCity} onChange={handleShowSearchedCity} executeHandleShowSearch={handleShowSearch} />
           }
           <MainPart />
+          <Details />
         </div>
       </div>
 
