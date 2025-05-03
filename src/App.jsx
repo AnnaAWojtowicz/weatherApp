@@ -19,6 +19,12 @@ function App() {
     setShowSearchedCity(e.target.value);
   }
 
+  const [showDetails, setShowDetails] = useState(false);
+  function handleDetails(e) {
+    setShowDetails(prevShowDetails => !prevShowDetails);
+  };
+
+
 
   return (
 
@@ -29,8 +35,10 @@ function App() {
             <City executeHandleShowSearch={handleShowSearch} city={showSeachedCity} /> :
             <Search value={showSeachedCity} onChange={handleShowSearchedCity} executeHandleShowSearch={handleShowSearch} />
           }
-          {/* <MainPart /> */}
-          <Details />
+          {!showDetails ?
+            <MainPart executeHandleDetails={handleDetails} /> :
+            <Details executeHandleDetails={handleDetails} />
+          }
         </div>
       </div>
 

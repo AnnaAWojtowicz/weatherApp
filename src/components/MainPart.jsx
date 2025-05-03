@@ -1,7 +1,7 @@
 import CloudIcon from "@mui/icons-material/Cloud";
 import ArrowDown from "@mui/icons-material/ArrowDropDown";
 
-export default function MainPart() {
+export default function MainPart({ executeHandleDetails }) {
 
     let mainPartStyles = {
         common: "text-[var(--anti-flash-white-500)] font-light",
@@ -24,10 +24,10 @@ export default function MainPart() {
                             </div>
                             <div className={`${mainPartStyles.common} text-center`}>feels like 20°C</div>
                         </div>
-                        <div className={`${mainPartStyles.twoLinesStyle}`}>
+                        <button className={`${mainPartStyles.twoLinesStyle}`} onClick={executeHandleDetails}>
                             <div className={`${mainPartStyles.common} text-sm`}>details</div>
                             <div className={`${mainPartStyles.common}`}><ArrowDown /></div>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>

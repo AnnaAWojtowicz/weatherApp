@@ -1,7 +1,7 @@
 import ExitIcon from "@mui/icons-material/Close";
 
 
-export default function Details() {
+export default function Details({ executeHandleDetails }) {
 
     let detailsStyles = {
         common: "flex justify-between text-[var(--anti-flash-white-500)] font-light text-base",
@@ -18,12 +18,13 @@ export default function Details() {
                     <div className="container w-full flex flex-col items-center p-[10px]">
                         <div className="flex flex-col gap-3 w-full">
                             <div>
-                                <div className={`${detailsStyles.date} text-right`}>
+                                <button className={`${detailsStyles.date} w-full flex justify-end`} onClick={executeHandleDetails}>
                                     <ExitIcon />
-                                </div>
+                                </button>
                                 <div className={`${detailsStyles.date} text-left`}>
                                     1 May
-                                </div></div>
+                                </div>
+                            </div>
                             <div>
                                 <div className={`${detailsStyles.common}`}><span>Temperature</span><span>23°C</span></div>
                                 <div className={`${detailsStyles.common}`}><span>Feels like</span><span>20°C</span></div>
