@@ -4,7 +4,7 @@ import ExitIcon from "@mui/icons-material/Close";
 export default function Details({ executeHandleDetails }) {
 
     let detailsStyles = {
-        common: "flex justify-between text-[var(--anti-flash-white-500)] font-light text-base",
+        common: "flex justify-between text-[var(--anti-flash-white-500)] font-light text-sm",
         date: "text-[var(--anti-flash-white-500)] font-light text-3xl items-center",
     };
 
