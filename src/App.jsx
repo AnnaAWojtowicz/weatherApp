@@ -4,7 +4,7 @@ import City from './components/City';
 import Search from './components/Search';
 import MainPart from './components/MainPart';
 import Details from './components/Details';
-import WeatherScroll from "./components/DayWeather";
+import WeatherScroll from "./components/WeatherScroll";
 import './App.css'
 
 
@@ -36,7 +36,7 @@ function App() {
   return (
 
     <div className="bg-[url('../public/img/billy-huynh-v9bnfMCyKbg-unsplash.jpg')] min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center">
-      <div className="container w-[320px] h-[600px] mx-auto pt-8 rounded-lg border-1 border-[#fafaff] bg-black/10 flex flex-col justify-between">
+      <div className="container w-[320px] h-[600px] mx-auto pt-6 rounded-lg border-1 border-[#fafaff] bg-black/10 flex flex-col justify-between">
         <div className="px-4">
           <div className="flex flex-col max-w-[300px] justify-between">
             {showSearch ?
