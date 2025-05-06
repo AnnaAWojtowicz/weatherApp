@@ -10,7 +10,7 @@ export default function WeatherScroll({ style }) {
 
     return (
         <div className={`${style} ${smallInfoStyles.common} flex flex-col items-center justify-between`}>
-            <div>1 May</div>
+            <div>31 May</div>
             <div>20°C</div>
             <div><CloudIcon /></div>
         </div>

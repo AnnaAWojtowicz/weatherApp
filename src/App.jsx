@@ -52,10 +52,11 @@ function App() {
 
         <div className="max-w-[320px] h-[190px] border-ghost_white/30 bg-black/20 flex items-center justify-center rounded-b-lg">
           <div className="flex flex-col space-between gap-[9px] pt-[9px]">
-            <div className="w-[318px] h-[85px] border-ghost_white/30 bg-black/40 flex items-center justify-center gap-5">
+            <div className="w-[318px] h-[85px] border-ghost_white/30 bg-black/40 flex items-center justify-center gap-5 relative">
+              <div className="flex items-center justify-center z-10 w-[55px] h-[80px] border border-[var(--anti-flash-white-500)] rounded-lg p-1 absolute left-1/2 -translate-x-1/2"></div>
               <WeatherScroll />
               <WeatherScroll />
-              <WeatherScroll style="border border-[var(--anti-flash-white-500)] rounded-lg p-1" />
+              <WeatherScroll />
               <WeatherScroll />
               <WeatherScroll />
             </div>
@@ -68,7 +69,7 @@ function App() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
 
   )
 }
