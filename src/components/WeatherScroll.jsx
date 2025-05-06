@@ -1,15 +1,15 @@
 import CloudIcon from "@mui/icons-material/Cloud";
 
 
-export default function WeatherScroll({ style }) {
+export default function WeatherScroll() {
 
     let smallInfoStyles = {
-        common: "text-[var(--anti-flash-white-500)] font-light text-sm",
+        common: "text-[var(--anti-flash-white-500)] font-light text-sm w-[45px] h-[70px]",
     }
 
 
     return (
-        <div className={`${style} ${smallInfoStyles.common} flex flex-col items-center justify-between`}>
+        <div className={`${smallInfoStyles.common} flex flex-col items-center justify-between`}>
             <div>31 May</div>
             <div>20°C</div>
             <div><CloudIcon /></div>

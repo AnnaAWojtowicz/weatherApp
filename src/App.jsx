@@ -59,6 +59,7 @@ function App() {
               <WeatherScroll />
               <WeatherScroll />
               <WeatherScroll />
+              <WeatherScroll />
             </div>
             <div className="w-[318px] h-[85px]  border-ghost_white/30 bg-black/40 flex items-center justify-center gap-5 rounded-b-lg">
               <WeatherScroll />
