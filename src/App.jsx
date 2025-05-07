@@ -54,6 +54,23 @@ function App() {
           <div className="flex flex-col space-between gap-[9px] pt-[9px]">
             <div className="w-[318px] h-[85px]  border-ghost_white/30 bg-black/40 flex items-center justify-center gap-5">
               <div className="relative flex w-full snap-x snap-mandatory gap-5 overflow-x-auto">
+                {/* use mapping here! */}
+                <WeatherScroll snapStyle="shrink-0 snap-center" />
+                <WeatherScroll snapStyle="shrink-0 snap-center" />
+                <WeatherScroll snapStyle="shrink-0 snap-center" />
+                <WeatherScroll snapStyle="shrink-0 snap-center" />
+                <WeatherScroll snapStyle="shrink-0 snap-center" />
+                <WeatherScroll snapStyle="shrink-0 snap-center" />
+                <WeatherScroll snapStyle="shrink-0 snap-center" />
+                <WeatherScroll snapStyle="shrink-0 snap-center" />
+                <WeatherScroll snapStyle="shrink-0 snap-center" />
+                <WeatherScroll snapStyle="shrink-0 snap-center" />
+
+              </div>
+            </div>
+            <div className="w-[318px] h-[85px]  border-ghost_white/30 bg-black/40 flex items-center justify-center gap-5 rounded-b-lg">
+              <div className="relative flex w-full snap-x snap-mandatory gap-5 overflow-x-auto">
+                {/* use mapping here! */}
                 <WeatherScroll snapStyle="shrink-0 snap-center" />
                 <WeatherScroll snapStyle="shrink-0 snap-center" />
                 <WeatherScroll snapStyle="shrink-0 snap-center" />
@@ -65,13 +82,6 @@ function App() {
                 <WeatherScroll snapStyle="shrink-0 snap-center" />
                 <WeatherScroll snapStyle="shrink-0 snap-center" />
               </div>
-            </div>
-            <div className="w-[318px] h-[85px]  border-ghost_white/30 bg-black/40 flex items-center justify-center gap-5 rounded-b-lg">
-              <WeatherScroll />
-              <WeatherScroll />
-              <WeatherScroll style="border border-[var(--anti-flash-white-500)] rounded-lg p-1" />
-              <WeatherScroll />
-              <WeatherScroll />
             </div>
           </div>
         </div>
