@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
 :root {
+  box-sizing: border-box;
+  border: 0 solid;
+  margin: 0;
+  padding: 0;
+
   /* Eerie Black */
   --eerie-black: #1c1c1c;
   --eerie-black-100: #060606;
