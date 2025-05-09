@@ -49,3 +49,9 @@ Kum (2024). No title [RainySpring]. Retrieved 08.05.2025 from: https://unsplash.
 Aaron Burden (2016). No title [SnowySpring]. Retrieved 08.05.2025 from: https://unsplash.com/photos/selective-focus-photography-snowflakes-9yhy1FXlKwI;
 
 Dave Hoefler (2019). Fog Grows [FoggyAutumn]. Retrieved 08.05.2025 from: https://unsplash.com/photos/bridge-near-trees-during-day-qxMV0MaTMUg;
+
+Mojtaba Dorri Ghabel (2021). Ramser [FoggySpring]. Retrieved 08.05.2025 from: https://unsplash.com/photos/a-foggy-road-in-the-middle-of-a-forest-ZWNCCnZlKY8;
+
+Shutter Speed (2024). No title [FoggyAutumn]. Retrieved 08.05.2025 from: https://unsplash.com/photos/a-foggy-forest-with-trees-in-the-foreground-OLtDDB-jmAY;
+
+Juraj Lenoch (2021). No title [SunnyAutumn]. Retrieved 08.05.2025 from: https://unsplash.com/photos/a-tree-that-is-next-to-a-body-of-water-DlFhJiyiLxY;
