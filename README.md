@@ -54,4 +54,14 @@ Mojtaba Dorri Ghabel (2021). Ramser [FoggySpring]. Retrieved 08.05.2025 from: ht
 
 Shutter Speed (2024). No title [FoggyAutumn]. Retrieved 08.05.2025 from: https://unsplash.com/photos/a-foggy-forest-with-trees-in-the-foreground-OLtDDB-jmAY;
 
-Juraj Lenoch (2021). No title [SunnyAutumn]. Retrieved 08.05.2025 from: https://unsplash.com/photos/a-tree-that-is-next-to-a-body-of-water-DlFhJiyiLxY;
+Lucas George Wendt. No title [SunnyAutumn]. Retrieved 09.05.2025 from: https://unsplash.com/photos/brown-leaves-under-blue-sky-during-daytime-Whe6-QXkXw4;
+
+Jason M (2024). No title [RainyAutumn]. Retrieved 09.05.2025 from: https://unsplash.com/photos/a-leaf-that-is-laying-on-the-ground-uledCJ_3HvY;
+
+Vasilina Sirotina (2022). No title [SnowyAutumn]. Retrieved 09.05.2025 from: https://unsplash.com/photos/a-tree-with-yellow-leaves-wmBvmHIglR0;
+
+Jon Cartagena (2023). Maroon Bells in Colorado [CloudyAutumn]. Retrieved 09.05.2025 from: https://unsplash.com/photos/a-river-running-through-a-lush-green-forest-ciqF5wCV4Gw;
+
+Bryan Dickerson (2022). Fall breaks out in Texas [ThunderAutumn]. Retrieved 09.05.2025 from: https://unsplash.com/photos/a-group-of-trees-with-red-leaves-sf7AR3b4EeE;
+
+Jing Han Tan (2023). No title [ThunderWinter]. Retrieved 09.05.2025 from: https://unsplash.com/photos/a-view-of-a-mountain-range-with-trees-in-the-foreground-ttylT4eMs0c;

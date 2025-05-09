@@ -8,8 +8,8 @@ export default function City({ executeHandleShowSearch, city }) {
 
     return (
         <div className="flex items-center justify-between mb-4">
-            <h1 className="text-4xl text-[#1c1c1c] display: inline">{place}</h1>
-            <SearchIcon className="text-3xl text-[#1c1c1c]" onClick={executeHandleShowSearch} />
+            <h1 className="text-4xl text-[var(--anti-flash-white-500)] display: inline">{place}</h1>
+            <SearchIcon className="text-3xl text-[var(--anti-flash-white-500)]" onClick={executeHandleShowSearch} />
         </div>
     )
 }
