@@ -65,3 +65,17 @@ Jon Cartagena (2023). Maroon Bells in Colorado [CloudyAutumn]. Retrieved 09.05.2
 Bryan Dickerson (2022). Fall breaks out in Texas [ThunderAutumn]. Retrieved 09.05.2025 from: https://unsplash.com/photos/a-group-of-trees-with-red-leaves-sf7AR3b4EeE;
 
 Jing Han Tan (2023). No title [ThunderWinter]. Retrieved 09.05.2025 from: https://unsplash.com/photos/a-view-of-a-mountain-range-with-trees-in-the-foreground-ttylT4eMs0c;
+
+Denis Panfilov (2022). No title [SunnyWinter2]. Retrieved 12.05.2025 from: https://unsplash.com/photos/a-wide-expanse-of-snow-with-a-mountain-in-the-distance-9FXM6uZqcr8;
+
+Nadine Marfurt (2022). No title [SunnyWinter]. Retrieved 12.05.2025 from: https://unsplash.com/photos/a-close-up-of-a-pine-tree-with-ice-on-it-cR0R2YtKLlU;
+
+Atle Mo (2017). No title [CloudyWinter]. Retrieved 12.05.2025 from: https://unsplash.com/photos/birds-eye-view-photography-of-pine-trees-during-winter-X9QnU-h3X_8;
+
+Muhammed Yasir (2022). Rain droplets over the bush, looks like a forest [RainyWinter]. Retrieved 12.05.2025 from: https://unsplash.com/photos/a-bunch-of-bushes-covered-in-snow-on-a-cloudy-day-MpLA9C2PXLw;
+
+Brian Jones (2018). No title [SnowyWinter]. Retrieved 12.05.2025 from: https://unsplash.com/photos/snow-covered-forest-s8QSJTJI6qg;
+
+Joshua Eckl (2023). No title [ThunderSpring2]. Retrieved 12.05.2025 from: https://unsplash.com/photos/a-large-storm-cloud-is-in-the-sky-over-a-field-iFv3blHlFUQ;
+
+Joshua Eckl (2023). No title [ThunderSpring]. Retrieved 12.05.2025 from: https://unsplash.com/photos/a-storm-is-coming-in-over-a-green-field-wdtAUnoRnlw;
