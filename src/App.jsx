@@ -6,6 +6,7 @@ import MainPart from './components/MainPart';
 import Details from './components/Details';
 import WeatherScroll from "./components/WeatherScroll";
 import './App.css'
+import getLocation from './api/getLocation';
 
 
 function App() {
@@ -14,16 +15,22 @@ function App() {
     common: ""
   };
 
-
-
   const [showSearch, setShowSearch] = useState(true)
   function handleShowSearch(e) {
     setShowSearch(prevShowSearch => !prevShowSearch);
   }
 
   const [showSeachedCity, setShowSearchedCity] = useState("");
-  function handleShowSearchedCity(e) {
-    setShowSearchedCity(e.target.value);
+  async function handleShowSearchedCity(e) {
+    const place = e.target.value;
+    setShowSearchedCity(place);
+
+    try {
+      const locationData = await getLocation({ place });
+      console.log('Location data:', locationData);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   }
 
   const [showDetails, setShowDetails] = useState(false);
@@ -43,6 +50,7 @@ function App() {
               <City executeHandleShowSearch={handleShowSearch} city={showSeachedCity} /> :
               <Search value={showSeachedCity} onChange={handleShowSearchedCity} executeHandleShowSearch={handleShowSearch} />
             }
+
             {!showDetails ?
               <MainPart executeHandleDetails={handleDetails} /> :
               <Details executeHandleDetails={handleDetails} />
