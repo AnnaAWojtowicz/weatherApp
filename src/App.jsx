@@ -20,10 +20,10 @@ function App() {
     setShowSearch(prevShowSearch => !prevShowSearch);
   }
 
-  const [showSeachedCity, setShowSearchedCity] = useState("");
-  async function handleShowSearchedCity(e) {
+  const [searchPlace, setSearchPlace] = useState("");
+  async function handleSearchPlace(e) {
     const place = e.target.value;
-    setShowSearchedCity(place);
+    setSearchPlace(place);
 
     try {
       const locationData = await getLocation({ place });
@@ -47,8 +47,8 @@ function App() {
         <div className="px-4">
           <div className="flex flex-col max-w-[300px] justify-between">
             {showSearch ?
-              <City executeHandleShowSearch={handleShowSearch} city={showSeachedCity} /> :
-              <Search value={showSeachedCity} onChange={handleShowSearchedCity} executeHandleShowSearch={handleShowSearch} />
+              <City executeHandleShowSearch={handleShowSearch} city={searchPlace} /> :
+              <Search value={searchPlace} onChange={handleSearchPlace} executeHandleShowSearch={handleShowSearch} />
             }
 
             {!showDetails ?
