@@ -3,7 +3,7 @@ import Button from "./Button";
 
 export default function City({ executeHandleShowSearch, city }) {
 
-    let place = city ? city : "Oslo";
+    let place = city ? city : "Search place";
 
 
     return (

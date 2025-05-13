@@ -13,7 +13,7 @@ export default function Search({ executeHandleShowSearch, ...props }) {
 
     return (
         <div className="flex items-center justify-between mb-4">
-            <input type="text" placeholder="Search city" {...props} className={`${styles.common} ${styles.input}`} />
+            <input type="text" placeholder="Search place" {...props} className={`${styles.common} ${styles.input}`} />
             <Button style={`${styles.common} ${styles.button}`}>
                 <SearchIcon className={`${styles.icon}`} onClick={executeHandleShowSearch} />
             </Button>
