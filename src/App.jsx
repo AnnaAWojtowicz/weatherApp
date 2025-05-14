@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import SearchIcon from "@mui/icons-material/Search";
-import City from './components/City';
+import Place from './components/Place';
 import Search from './components/Search';
 import MainPart from './components/MainPart';
 import Details from './components/Details';
@@ -11,27 +11,13 @@ import getLocation from './api/getLocation';
 
 function App() {
 
-  let footerStyles = {
-    common: ""
-  };
+
 
   const [showSearch, setShowSearch] = useState(true)
   function handleShowSearch(e) {
     setShowSearch(prevShowSearch => !prevShowSearch);
   }
 
-  const [searchPlace, setSearchPlace] = useState("");
-  async function handleSearchPlace(e) {
-    const place = e.target.value;
-    setSearchPlace(place);
-
-    try {
-      const locationData = await getLocation({ place });
-      console.log('Location data:', locationData);
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
 
   const [showDetails, setShowDetails] = useState(false);
   function handleDetails(e) {
@@ -47,8 +33,8 @@ function App() {
         <div className="px-4">
           <div className="flex flex-col max-w-[300px] justify-between">
             {showSearch ?
-              <City executeHandleShowSearch={handleShowSearch} city={searchPlace} /> :
-              <Search value={searchPlace} onChange={handleSearchPlace} executeHandleShowSearch={handleShowSearch} />
+              <Place executeHandleShowSearch={handleShowSearch} /> :
+              <Search executeHandleShowSearch={handleShowSearch} />
             }
 
             {!showDetails ?

@@ -1,5 +1,7 @@
+import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import Button from "./Button";
+import getLocation from "../api/getLocation";
 
 export default function Search({ executeHandleShowSearch, ...props }) {
 
@@ -11,11 +13,33 @@ export default function Search({ executeHandleShowSearch, ...props }) {
         icon: "text-[var(--)]"
     };
 
+    let [searched, setSearched] = useState("");
+    async function handleSearch() {
+        try {
+            const locationData = await getLocation({ searched });
+            console.log('Location data:', locationData);
+
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+
+
     return (
         <div className="flex items-center justify-between mb-4">
-            <input type="text" placeholder="Search place" {...props} className={`${styles.common} ${styles.input}`} />
+            <input
+                type="text"
+                placeholder="Search place"
+                onChange={(e) => setSearched(e.target.value)}
+                {...props}
+                className={`${styles.common} ${styles.input}`}
+            />
             <Button style={`${styles.common} ${styles.button}`}>
-                <SearchIcon className={`${styles.icon}`} onClick={executeHandleShowSearch} />
+                <SearchIcon
+                    className={`${styles.icon}`}
+                    onClick={handleSearch}
+                />
             </Button>
         </div>
     )
