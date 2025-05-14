@@ -18,7 +18,9 @@ export default function Search({ executeHandleShowSearch, ...props }) {
         try {
             const locationData = await getLocation({ searched });
             console.log('Location data:', locationData);
-
+            if (locationData && locationData[0].name) {
+                executeHandleShowSearch(locationData[0].name);
+            }
         } catch (error) {
             console.error('Error:', error);
         }

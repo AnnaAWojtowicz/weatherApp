@@ -11,10 +11,13 @@ import getLocation from './api/getLocation';
 
 function App() {
 
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchedPlace, setSearchedPlace] = useState("Search place");
 
-
-  const [showSearch, setShowSearch] = useState(true)
-  function handleShowSearch(e) {
+  function handleShowSearch(placeName) {
+    if (placeName) {
+      setSearchedPlace(placeName);
+    }
     setShowSearch(prevShowSearch => !prevShowSearch);
   }
 
@@ -33,8 +36,8 @@ function App() {
         <div className="px-4">
           <div className="flex flex-col max-w-[300px] justify-between">
             {showSearch ?
-              <Place executeHandleShowSearch={handleShowSearch} /> :
-              <Search executeHandleShowSearch={handleShowSearch} />
+              <Search executeHandleShowSearch={handleShowSearch} /> :
+              <Place executeHandleShowSearch={handleShowSearch} place={searchedPlace} />
             }
 
             {!showDetails ?

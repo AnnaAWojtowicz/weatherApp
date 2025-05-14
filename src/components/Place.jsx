@@ -1,9 +1,9 @@
 import SearchIcon from "@mui/icons-material/Search";
 import Button from "./Button";
 
-export default function Place({ executeHandleShowSearch, city }) {
+export default function Place({ executeHandleShowSearch, place }) {
 
-    let place = city ? city : "Search place";
+
 
 
     return (
