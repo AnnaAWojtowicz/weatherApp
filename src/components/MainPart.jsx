@@ -16,6 +16,9 @@ export default function MainPart({ executeHandleDetails, weatherData }) {
     }
     const temp = Math.round(weatherData.properties.timeseries[0].data.instant.details.
         air_temperature);
+    const wind = Math.round(weatherData.properties.timeseries[0].data.instant.details.
+        wind_speed);
+    const percip = Math.round(weatherData.properties.timeseries[0].data.next_1_hours.details.precipitation_amount)
 
 
     return (
@@ -27,9 +30,9 @@ export default function MainPart({ executeHandleDetails, weatherData }) {
                         <div className={`${mainPartStyles.common} ${mainPartStyles.tempIcon}`}><CloudIcon sx={{ fontSize: "4rem" }} /></div>
                         <div>
                             <div className="flex items-center gap-5">
-                                <span className={`${mainPartStyles.twoLinesStyle} text-sm`}><div className={`${mainPartStyles.common}`}>wind</div><div className={`${mainPartStyles.common}`}>5m/s</div></span>
+                                <span className={`${mainPartStyles.twoLinesStyle} text-sm`}><div className={`${mainPartStyles.common}`}>wind</div><div className={`${mainPartStyles.common}`}>{wind} m/s</div></span>
                                 <span className={`${mainPartStyles.twoLinesStyle}`}><div className={`${mainPartStyles.common} ${mainPartStyles.mainTemp}`}>{temp}°C</div></span>
-                                <span className={`${mainPartStyles.twoLinesStyle} text-sm`}><div className={`${mainPartStyles.common}`}>percip.</div><div className={`${mainPartStyles.common}`}>0 mm</div></span>
+                                <span className={`${mainPartStyles.twoLinesStyle} text-sm`}><div className={`${mainPartStyles.common}`}>percip.</div><div className={`${mainPartStyles.common}`}>{percip} mm</div></span>
                             </div>
                             <div className={`${mainPartStyles.common} text-center`}>feels like 20°C</div>
                         </div>
