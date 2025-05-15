@@ -3,9 +3,6 @@ import Button from "./Button";
 
 export default function Place({ executeHandleShowSearch, place }) {
 
-
-
-
     return (
         <div className="flex items-center justify-between mb-4">
             <h1 className="text-4xl text-[var(--anti-flash-white-500)] display: inline">{place}</h1>

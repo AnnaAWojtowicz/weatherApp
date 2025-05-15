@@ -2,6 +2,7 @@ import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import Button from "./Button";
 import getLocation from "../api/getLocation";
+import getWeatherNow from "../api/getWeatherNow";
 
 export default function Search({ executeHandleShowSearch, ...props }) {
 
@@ -18,8 +19,14 @@ export default function Search({ executeHandleShowSearch, ...props }) {
         try {
             const locationData = await getLocation({ searched });
             console.log('Location data:', locationData);
-            if (locationData && locationData[0].name) {
+            if (locationData && locationData[0]) {
+
+                const weatherNowData = await getWeatherNow({
+                    lat: locationData[0].lat,
+                    lon: locationData[0].lon
+                });
                 executeHandleShowSearch(locationData[0].name);
+
             }
         } catch (error) {
             console.error('Error:', error);
