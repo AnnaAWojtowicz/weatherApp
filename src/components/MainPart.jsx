@@ -14,8 +14,8 @@ export default function MainPart({ executeHandleDetails, weatherData }) {
     if (!weatherData) {
         return <div className="text-white text-center">Loading...</div>;
     }
-    const temp = weatherData.properties.timeseries[0].data.instant.details.
-        air_temperature;
+    const temp = Math.round(weatherData.properties.timeseries[0].data.instant.details.
+        air_temperature);
 
 
     return (
