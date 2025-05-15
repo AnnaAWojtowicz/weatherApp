@@ -20,13 +20,11 @@ export default function Search({ executeHandleShowSearch, ...props }) {
             const locationData = await getLocation({ searched });
             console.log('Location data:', locationData);
             if (locationData && locationData[0]) {
-
                 const weatherNowData = await getWeatherNow({
                     lat: locationData[0].lat,
                     lon: locationData[0].lon
                 });
-                executeHandleShowSearch(locationData[0].name);
-
+                executeHandleShowSearch(locationData[0].name, weatherNowData);
             }
         } catch (error) {
             console.error('Error:', error);

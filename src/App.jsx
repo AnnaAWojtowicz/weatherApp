@@ -13,14 +13,15 @@ function App() {
 
   const [showSearch, setShowSearch] = useState(false);
   const [searchedPlace, setSearchedPlace] = useState("Search place");
+  const [weatherData, setWeatherData] = useState(null);
 
-  function handleShowSearch(placeName) {
+  function handleShowSearch(placeName, weatherDataApi) {
     if (placeName) {
       setSearchedPlace(placeName);
+      setWeatherData(weatherDataApi);
     }
     setShowSearch(prevShowSearch => !prevShowSearch);
   }
-
 
   const [showDetails, setShowDetails] = useState(false);
   function handleDetails(e) {
@@ -30,7 +31,6 @@ function App() {
 
 
   return (
-
     <div className="bg-[url('../public/img/thunderSpring.jpg')] min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center">
       <div className="container w-[320px] h-[600px] mx-auto pt-6 rounded-lg border-1 border-[#fafaff] bg-black/30 flex flex-col justify-between">
         <div className="px-4">
@@ -41,7 +41,7 @@ function App() {
             }
 
             {!showDetails ?
-              <MainPart executeHandleDetails={handleDetails} /> :
+              <MainPart executeHandleDetails={handleDetails} weatherData={weatherData} /> :
               <Details executeHandleDetails={handleDetails} />
             }
           </div>

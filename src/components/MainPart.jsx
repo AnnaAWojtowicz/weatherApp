@@ -1,13 +1,22 @@
 import CloudIcon from "@mui/icons-material/Cloud";
 import ArrowDown from "@mui/icons-material/ArrowDropDown";
+import getWeatherNow from "../api/getWeatherNow";
 
-export default function MainPart({ executeHandleDetails }) {
+export default function MainPart({ executeHandleDetails, weatherData }) {
 
     let mainPartStyles = {
         common: "text-[var(--anti-flash-white-500)] font-light",
         twoLinesStyle: "flex flex-col items-center justify-center",
         mainTemp: "text-6xl",
     };
+
+    // need to fix this part: when nothing is searched CurrencyYenTwoTone, it should show the weather for current position
+    if (!weatherData) {
+        return <div className="text-white text-center">Loading...</div>;
+    }
+    const temp = weatherData.properties.timeseries[0].data.instant.details.
+        air_temperature;
+
 
     return (
 
@@ -19,7 +28,7 @@ export default function MainPart({ executeHandleDetails }) {
                         <div>
                             <div className="flex items-center gap-5">
                                 <span className={`${mainPartStyles.twoLinesStyle} text-sm`}><div className={`${mainPartStyles.common}`}>wind</div><div className={`${mainPartStyles.common}`}>5m/s</div></span>
-                                <span className={`${mainPartStyles.twoLinesStyle}`}><div className={`${mainPartStyles.common} ${mainPartStyles.mainTemp}`}>23°C</div></span>
+                                <span className={`${mainPartStyles.twoLinesStyle}`}><div className={`${mainPartStyles.common} ${mainPartStyles.mainTemp}`}>{temp}°C</div></span>
                                 <span className={`${mainPartStyles.twoLinesStyle} text-sm`}><div className={`${mainPartStyles.common}`}>percip.</div><div className={`${mainPartStyles.common}`}>0 mm</div></span>
                             </div>
                             <div className={`${mainPartStyles.common} text-center`}>feels like 20°C</div>
