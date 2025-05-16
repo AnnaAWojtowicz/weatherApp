@@ -27,9 +27,57 @@ function App() {
     setShowDetails(prevShowDetails => !prevShowDetails);
   };
 
+  // changing the background image based on the weather data and season
   function handleBackgroundImg() {
     if (!weatherData) {
-      return "bg-[url('../public/img/sunset.jpg')]"
+      return "bg-[url('../public/img/sunset.jpg')]";
+    }
+
+    let symbolCode = weatherData.properties.timeseries[0].data.next_1_hours.summary.symbol_code;
+    let time = new Date(weatherData.properties.timeseries[0].time);
+    let month = time.getMonth() + 1;
+
+    let season = "";
+    if (month >= 3 && month <= 5) {
+      season = "spring";
+    } else if (month >= 6 && month <= 8) {
+      season = "summer";
+    } else if (month >= 9 && month <= 11) {
+      season = "autumn";
+    } else {
+      season = "winter";
+    }
+
+    if (symbolCode.includes("rain") || symbolCode.includes("showers")) {
+      return season === 'spring' ? "bg-[url('../public/img/rainySpring.jpg')]" :
+        season === 'summer' ? "bg-[url('../public/img/rainySummer.jpg')]" :
+          season === 'autumn' ? "bg-[url('../public/img/rainyAutumn.jpg')]" :
+            "bg-[url('../public/img/rainyWinter.jpg')]";
+    } else if (symbolCode.includes("snow") || symbolCode.includes("sleet")) {
+      return season === 'spring' ? "bg-[url('../public/img/snowySpring.jpg')]" :
+        season === 'summer' ? "bg-[url('../public/img/snowySummer.jpg')]" :
+          season === 'autumn' ? "bg-[url('../public/img/snowyAutumn.jpg')]" :
+            "bg-[url('../public/img/snowyWinter.jpg')]";
+    } else if (symbolCode.includes("fog")) {
+      return season === 'spring' ? "bg-[url('../public/img/foggySpring.jpg')]" :
+        season === 'summer' ? "bg-[url('../public/img/foggySummer.jpg')]" :
+          season === 'autumn' ? "bg-[url('../public/img/foggyAutumn.jpg')]" :
+            "bg-[url('../public/img/foggyWinter.jpg')]";
+    } else if (symbolCode.includes("cloud") || symbolCode.includes("overcast")) {
+      return season === 'spring' ? "bg-[url('../public/img/cloudySpring.jpg')]" :
+        season === 'summer' ? "bg-[url('../public/img/cloudySummer.jpg')]" :
+          season === 'autumn' ? "bg-[url('../public/img/cloudyAutumn.jpg')]" :
+            "bg-[url('../public/img/cloudyWinter.jpg')]";
+    } else if (symbolCode.includes("thunder")) {
+      return season === 'spring' ? "bg-[url('../public/img/thunderSpring.jpg')]" :
+        season === 'summer' ? "bg-[url('../public/img/thunderSummer.jpg')]" :
+          season === 'autumn' ? "bg-[url('../public/img/thunderAutumn.jpg')]" :
+            "bg-[url('../public/img/thunderWinter.jpg')]";
+    } else if (symbolCode.includes("clear") || symbolCode.includes("partly") || symbolCode.includes("fair") || symbolCode.includes("sunny")) {
+      return season === 'spring' ? "bg-[url('../public/img/sunnySpring.jpg')]" :
+        season === 'summer' ? "bg-[url('../public/img/sunnySummer.jpg')]" :
+          season === 'autumn' ? "bg-[url('../public/img/sunnyAutumn.jpg')]" :
+            "bg-[url('../public/img/sunnyWinter.jpg')]";
     }
   }
 
