@@ -1,14 +1,34 @@
 import ExitIcon from "@mui/icons-material/Close";
 
 
-export default function Details({ executeHandleDetails }) {
+export default function Details({ executeHandleDetails, weatherData }) {
 
     let detailsStyles = {
         common: "flex justify-between text-[var(--anti-flash-white-500)] font-light text-sm",
         date: "text-[var(--anti-flash-white-500)] font-light text-3xl items-center",
     };
 
+    // date formatting
+    const apiDate = weatherData.properties.timeseries[0].time;
+    const date = new Date(apiDate);
 
+    const day = date.getUTCDate();
+    const month = date.toLocaleString('en-GB', { month: 'short', timeZone: 'UTC' });
+
+    const formattedDate = `${day} ${month}`;
+
+
+    //weather details 
+    const temp = Math.round(weatherData.properties.timeseries[0].data.instant.details.
+        air_temperature);
+    const wind = Math.round(weatherData.properties.timeseries[0].data.instant.details.
+        wind_speed);
+    const percip = Math.round(weatherData.properties.timeseries[0].data.next_1_hours.details.precipitation_amount)
+    const pressure = Math.round(weatherData.properties.timeseries[0].data.instant.details.
+        air_pressure_at_sea_level);
+    const humidity = Math.round(weatherData.properties.timeseries[0].data.instant.details.relative_humidity);
+    const cloudCover = Math.round(weatherData.properties.timeseries[0].data.instant.details.
+        cloud_area_fraction);
 
 
     return (
@@ -22,19 +42,19 @@ export default function Details({ executeHandleDetails }) {
                                     <ExitIcon />
                                 </button>
                                 <div className={`${detailsStyles.date} text-left`}>
-                                    1 May
+                                    {formattedDate}
                                 </div>
                             </div>
                             <div>
-                                <div className={`${detailsStyles.common}`}><span>Temperature</span><span>23°C</span></div>
+                                <div className={`${detailsStyles.common}`}><span>Temperature</span><span>{temp}°C</span></div>
                                 <div className={`${detailsStyles.common}`}><span>Feels like</span><span>20°C</span></div>
-                                <div className={`${detailsStyles.common}`}><span>Wind</span><span>5m/s</span></div>
-                                <div className={`${detailsStyles.common}`}><span>Rain</span><span>0mm</span></div>
+                                <div className={`${detailsStyles.common}`}><span>Wind</span><span>{wind} m/s</span></div>
+                                <div className={`${detailsStyles.common}`}><span>Rain</span><span>{percip} mm</span></div>
                             </div>
                             <div>
-                                <div className={`${detailsStyles.common}`}><span>Pressure</span><span>1023hPa</span></div>
-                                <div className={`${detailsStyles.common}`}><span>Humidity</span><span>23%</span></div>
-                                <div className={`${detailsStyles.common}`}><span>Cloud cover</span><span>53%</span></div>
+                                <div className={`${detailsStyles.common}`}><span>Pressure</span><span>{pressure} hPa</span></div>
+                                <div className={`${detailsStyles.common}`}><span>Humidity</span><span>{humidity} %</span></div>
+                                <div className={`${detailsStyles.common}`}><span>Cloud cover</span><span>{cloudCover} %</span></div>
                             </div>
                             <div>
                                 <div className={`${detailsStyles.common}`}><span>Sunrise</span><span>23:00</span></div>

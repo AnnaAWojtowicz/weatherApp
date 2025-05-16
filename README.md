@@ -1,6 +1,6 @@
 # WeatherApp
 
-This is a simple and responsive WeatherApp built with React. It allows users to search for current weather conditions in any city worldwide using the ... API.
+This is a simple and responsive WeatherApp built with React. It allows users to search for current weather conditions in any city worldwide using the MET Weather API.
 
 ## Features
 
@@ -22,9 +22,13 @@ This is a simple and responsive WeatherApp built with React. It allows users to 
 
 ### API
 
-### Fonts & Icons
+### Fonts & Icons:
 
 Corey Hu (n.d.) Urbanist. Google Fonts. Retrieved 01.05.2025 from: https://fonts.google.com/specimen/Urbanist?query=urbanist&icon.size=24&icon.color=%231f1f1f;
+
+### API:
+
+Met Weather API: https://api.met.no/;
 
 ### Photos:
 
