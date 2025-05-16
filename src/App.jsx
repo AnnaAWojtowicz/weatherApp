@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import SearchIcon from "@mui/icons-material/Search";
 import Place from './components/Place';
 import Search from './components/Search';
 import MainPart from './components/MainPart';
 import Details from './components/Details';
 import WeatherScroll from "./components/WeatherScroll";
 import './App.css'
-import getLocation from './api/getLocation';
+import "./index.css"
 
 
 function App() {
