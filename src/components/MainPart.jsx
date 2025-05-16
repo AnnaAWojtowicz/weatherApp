@@ -19,7 +19,7 @@ export default function MainPart({ executeHandleDetails, weatherData }) {
 
     // need to fix this part: when nothing is searched CurrencyYenTwoTone, it should show the weather for current position
     if (!weatherData) {
-        return <div className="text-white text-center">Loading...</div>;
+        return <div className="text-white text-center"></div>;
     }
     const temp = Math.round(weatherData.properties.timeseries[0].data.instant.details.
         air_temperature);

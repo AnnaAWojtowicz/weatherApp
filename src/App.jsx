@@ -27,10 +27,14 @@ function App() {
     setShowDetails(prevShowDetails => !prevShowDetails);
   };
 
-
+  function handleBackgroundImg() {
+    if (!weatherData) {
+      return "bg-[url('../public/img/sunset.jpg')]"
+    }
+  }
 
   return (
-    <div className="bg-[url('../public/img/thunderSpring.jpg')] min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center">
+    <div className={`${handleBackgroundImg()} min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center`}>
       <div className="container w-[320px] h-[600px] mx-auto pt-6 rounded-lg border-1 border-[#fafaff] bg-black/30 flex flex-col justify-between">
         <div className="px-4">
           <div className="flex flex-col max-w-[300px] justify-between">
