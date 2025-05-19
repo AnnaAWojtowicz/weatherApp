@@ -13,11 +13,13 @@ function App() {
   const [showSearch, setShowSearch] = useState(false);
   const [searchedPlace, setSearchedPlace] = useState("Search place");
   const [weatherData, setWeatherData] = useState(null);
+  const [sunriseSunsetData, setSunriseSunsetData] = useState(null);
 
-  function handleShowSearch(placeName, weatherDataApi) {
+  function handleShowSearch(placeName, weatherDataApi, sunriseSunsetData) {
     if (placeName) {
       setSearchedPlace(placeName);
       setWeatherData(weatherDataApi);
+      setSunriseSunsetData(sunriseSunsetData);
     }
     setShowSearch(prevShowSearch => !prevShowSearch);
   }
@@ -80,6 +82,8 @@ function App() {
             "bg-[url('../public/img/sunnyWinter.jpg')]";
     }
   }
+
+
 
   return (
     <div className={`${handleBackgroundImg()} min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center`}>
