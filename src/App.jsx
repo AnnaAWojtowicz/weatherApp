@@ -29,6 +29,27 @@ function App() {
     setShowDetails(prevShowDetails => !prevShowDetails);
   };
 
+  // getting forecast data for next 24h
+  function getHourlyForecast() {
+    if (!weatherData?.properties?.timeseries) return [];
+
+    let first24Hours = weatherData.properties.timeseries.slice(0, 24);
+    let forecastData24h = first24Hours.map((item, index) => {
+      let time24h = new Date(item.time).toLocaleTimeString('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      });
+      let temperature24h = Math.round(item.data.instant.details.air_temperature);
+      let symbolCode24h = item.data.next_1_hours.summary.symbol_code;
+      return { time24h, temperature24h, symbolCode24h, index }
+    }
+    );
+    return forecastData24h;
+  }
+
+
+
   // changing the background image based on the weather data and season
   function handleBackgroundImg() {
     if (!weatherData) {
@@ -51,35 +72,35 @@ function App() {
     }
 
     if (symbolCode.includes("rain") || symbolCode.includes("showers")) {
-      return season === 'spring' ? "bg-[url('../public/img/rainySpring.jpg')]" :
-        season === 'summer' ? "bg-[url('../public/img/rainySummer.jpg')]" :
-          season === 'autumn' ? "bg-[url('../public/img/rainyAutumn.jpg')]" :
-            "bg-[url('../public/img/rainyWinter.jpg')]";
+      return season === 'spring' ? "bg-[url('../img/rainySpring.jpg')]" :
+        season === 'summer' ? "bg-[url('../img/rainySummer.jpg')]" :
+          season === 'autumn' ? "bg-[url('../img/rainyAutumn.jpg')]" :
+            "bg-[url('../img/rainyWinter.jpg')]";
     } else if (symbolCode.includes("snow") || symbolCode.includes("sleet")) {
-      return season === 'spring' ? "bg-[url('../public/img/snowySpring.jpg')]" :
-        season === 'summer' ? "bg-[url('../public/img/snowySummer.jpg')]" :
-          season === 'autumn' ? "bg-[url('../public/img/snowyAutumn.jpg')]" :
-            "bg-[url('../public/img/snowyWinter.jpg')]";
+      return season === 'spring' ? "bg-[url('../img/snowySpring.jpg')]" :
+        season === 'summer' ? "bg-[url('../img/snowySummer.jpg')]" :
+          season === 'autumn' ? "bg-[url('../img/snowyAutumn.jpg')]" :
+            "bg-[url('../img/snowyWinter.jpg')]";
     } else if (symbolCode.includes("fog")) {
-      return season === 'spring' ? "bg-[url('../public/img/foggySpring.jpg')]" :
-        season === 'summer' ? "bg-[url('../public/img/foggySummer.jpg')]" :
-          season === 'autumn' ? "bg-[url('../public/img/foggyAutumn.jpg')]" :
+      return season === 'spring' ? "bg-[url('../img/foggySpring.jpg')]" :
+        season === 'summer' ? "bg-[url('../img/foggySummer.jpg')]" :
+          season === 'autumn' ? "bg-[url('../img/foggyAutumn.jpg')]" :
             "bg-[url('../public/img/foggyWinter.jpg')]";
     } else if (symbolCode.includes("cloud") || symbolCode.includes("overcast")) {
-      return season === 'spring' ? "bg-[url('../public/img/cloudySpring.jpg')]" :
-        season === 'summer' ? "bg-[url('../public/img/cloudySummer.jpg')]" :
-          season === 'autumn' ? "bg-[url('../public/img/cloudyAutumn.jpg')]" :
+      return season === 'spring' ? "bg-[url('../img/cloudySpring.jpg')]" :
+        season === 'summer' ? "bg-[url('../img/cloudySummer.jpg')]" :
+          season === 'autumn' ? "bg-[url('../img/cloudyAutumn.jpg')]" :
             "bg-[url('../public/img/cloudyWinter.jpg')]";
     } else if (symbolCode.includes("thunder")) {
-      return season === 'spring' ? "bg-[url('../public/img/thunderSpring.jpg')]" :
-        season === 'summer' ? "bg-[url('../public/img/thunderSummer.jpg')]" :
-          season === 'autumn' ? "bg-[url('../public/img/thunderAutumn.jpg')]" :
-            "bg-[url('../public/img/thunderWinter.jpg')]";
+      return season === 'spring' ? "bg-[url('../img/thunderSpring.jpg')]" :
+        season === 'summer' ? "bg-[url('../img/thunderSummer.jpg')]" :
+          season === 'autumn' ? "bg-[url('../img/thunderAutumn.jpg')]" :
+            "bg-[url('../img/thunderWinter.jpg')]";
     } else if (symbolCode.includes("clear") || symbolCode.includes("partly") || symbolCode.includes("fair") || symbolCode.includes("sunny")) {
-      return season === 'spring' ? "bg-[url('../public/img/sunnySpring.jpg')]" :
-        season === 'summer' ? "bg-[url('../public/img/sunnySummer.jpg')]" :
-          season === 'autumn' ? "bg-[url('../public/img/sunnyAutumn.jpg')]" :
-            "bg-[url('../public/img/sunnyWinter.jpg')]";
+      return season === 'spring' ? "bg-[url('../img/sunnySpring.jpg')]" :
+        season === 'summer' ? "bg-[url('../img/sunnySummer.jpg')]" :
+          season === 'autumn' ? "bg-[url('../img/sunnyAutumn.jpg')]" :
+            "bg-[url('../img/sunnyWinter.jpg')]";
     }
   }
 
@@ -123,16 +144,9 @@ function App() {
             <div className="w-[318px] h-[85px]  border-ghost_white/30 bg-black/40 flex items-center justify-center gap-5 rounded-b-lg">
               <div className="relative flex w-full snap-x snap-mandatory gap-5 overflow-x-auto">
                 {/* use mapping here! */}
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
+                {getHourlyForecast().map((forecastHourByHour) => (<WeatherScroll snapStyle="shrink-0 snap-center" key={forecastHourByHour.index} time24h={forecastHourByHour.time24h} temperature24h={forecastHourByHour.temperature24h} symbolCode24h={forecastHourByHour.symbolCode24h} />))}
+
+
               </div>
             </div>
           </div>
