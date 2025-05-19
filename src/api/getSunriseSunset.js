@@ -3,7 +3,7 @@ export default async function getSunriseSunset({ lat, lon }) {
 
     const today = new Date();
     const formattedDate = today.toISOString().split('T')[0];
-    const getSunriseSunsetApi = `https://api.sunrisesunset.io/json?lat=${lat}&lng=${lon}&date=${formattedDate}&formatted=0`;
+    const getSunriseSunsetApi = `https://api.sunrisesunset.io/json?lat=${lat}&lng=${lon}&date=${formattedDate}&time_format=24`;
 
     try {
         const response = await fetch(getSunriseSunsetApi);

@@ -1,6 +1,6 @@
 # WeatherApp
 
-This is a simple and responsive WeatherApp built with React. It allows users to search for current weather conditions in any city worldwide using the MET Weather API.
+This is a simple and responsive WeatherApp built with React. It allows users to search for current weather conditions in any city worldwide using the MET Weather API, Sunset and Sunrise Times API.
 
 ## Features
 
@@ -29,6 +29,7 @@ Corey Hu (n.d.) Urbanist. Google Fonts. Retrieved 01.05.2025 from: https://fonts
 ### API:
 
 Met Weather API: https://api.met.no/;
+Sunset and Sunrise Times API: https://sunrisesunset.io/api/;
 
 ### Photos:
 

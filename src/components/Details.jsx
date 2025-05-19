@@ -1,12 +1,18 @@
 import ExitIcon from "@mui/icons-material/Close";
 
 
-export default function Details({ executeHandleDetails, weatherData }) {
+export default function Details({ executeHandleDetails, weatherData, sunriseSunsetData }) {
 
     let detailsStyles = {
         common: "flex justify-between text-[var(--anti-flash-white-500)] font-light text-sm",
         date: "text-[var(--anti-flash-white-500)] font-light text-3xl items-center",
     };
+
+    if (!weatherData || !sunriseSunsetData) {
+        return <div className="text-white text-center">Loading weather details...</div>;
+    }
+
+
 
     // date formatting
     const apiDate = weatherData.properties.timeseries[0].time;
@@ -29,6 +35,8 @@ export default function Details({ executeHandleDetails, weatherData }) {
     const humidity = Math.round(weatherData.properties.timeseries[0].data.instant.details.relative_humidity);
     const cloudCover = Math.round(weatherData.properties.timeseries[0].data.instant.details.
         cloud_area_fraction);
+    const sunrise = sunriseSunsetData.results.sunrise.slice(0, 5);
+    const sunset = sunriseSunsetData.results.sunset.slice(0, 5);
 
 
     return (
@@ -57,8 +65,8 @@ export default function Details({ executeHandleDetails, weatherData }) {
                                 <div className={`${detailsStyles.common}`}><span>Cloud cover</span><span>{cloudCover} %</span></div>
                             </div>
                             <div>
-                                <div className={`${detailsStyles.common}`}><span>Sunrise</span><span>23:00</span></div>
-                                <div className={`${detailsStyles.common}`}><span>Sunset</span><span>23:00</span></div>
+                                <div className={`${detailsStyles.common}`}><span>Sunrise</span><span>{sunrise}</span></div>
+                                <div className={`${detailsStyles.common}`}><span>Sunset</span><span>{sunset}</span></div>
                             </div>
                         </div>
                     </div>

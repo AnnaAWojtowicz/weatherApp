@@ -97,7 +97,7 @@ function App() {
 
             {!showDetails ?
               <MainPart executeHandleDetails={handleDetails} weatherData={weatherData} /> :
-              <Details executeHandleDetails={handleDetails} weatherData={weatherData} />
+              <Details executeHandleDetails={handleDetails} weatherData={weatherData} sunriseSunsetData={sunriseSunsetData} />
             }
           </div>
         </div>
