@@ -133,20 +133,14 @@ function App() {
                 <WeatherScroll snapStyle="shrink-0 snap-center" />
                 <WeatherScroll snapStyle="shrink-0 snap-center" />
                 <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
+
 
               </div>
             </div>
             <div className="w-[318px] h-[85px]  border-ghost_white/30 bg-black/40 flex items-center justify-center gap-5 rounded-b-lg">
               <div className="relative flex w-full snap-x snap-mandatory gap-5 overflow-x-auto">
                 {/* use mapping here! */}
-                {getHourlyForecast().map((forecastHourByHour) => (<WeatherScroll snapStyle="shrink-0 snap-center" key={forecastHourByHour.index} time24h={forecastHourByHour.time24h} temperature24h={forecastHourByHour.temperature24h} symbolCode24h={forecastHourByHour.symbolCode24h} />))}
-
-
+                {getHourlyForecast().map((forecastHourByHour) => (<WeatherScroll snapStyle="shrink-0 snap-center" key={forecastHourByHour.index} time24h={forecastHourByHour.time24h} temperature24h={forecastHourByHour.temperature24h} symbolCode24h={forecastHourByHour.symbolCode24h} sunriseSunsetData={sunriseSunsetData} />))}
               </div>
             </div>
           </div>
