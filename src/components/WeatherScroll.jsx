@@ -8,7 +8,7 @@ import SnowIcon from "@mui/icons-material/Snowing";
 import SleetIcon from "@mui/icons-material/CloudySnowing";
 import NightIcon from "@mui/icons-material/Bedtime";
 
-export default function WeatherScroll({ snapStyle, time24h, temperature24h, symbolCode24h, sunriseSunsetData }) {
+export default function WeatherScroll({ snapStyle, time24h, temperature24h, symbolCode24h, sunriseSunsetData, date, tempDaily, symbolCodeDaily }) {
 
     let smallInfoStyles = {
         common: "text-[var(--anti-flash-white-500)] font-light text-sm w-[45px] h-[70px]",
@@ -25,8 +25,6 @@ export default function WeatherScroll({ snapStyle, time24h, temperature24h, symb
         const sunsetTime = parseInt(sunriseSunsetData.results.sunset.slice(0, 5).replace(':', ''));
 
         isNighttime = (currentTime < sunriseTime) || (currentTime > sunsetTime);
-
-        console.log('Is night time:', isNighttime);
     }
 
     if (isNighttime) {

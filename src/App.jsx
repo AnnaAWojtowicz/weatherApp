@@ -4,8 +4,9 @@ import Search from './components/Search';
 import MainPart from './components/MainPart';
 import Details from './components/Details';
 import WeatherScroll from "./components/WeatherScroll";
-import './App.css'
-import "./index.css"
+import './App.css';
+import "./index.css";
+import ThermometerIcon from "@mui/icons-material/Thermostat";
 
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
   const [searchedPlace, setSearchedPlace] = useState("Search place");
   const [weatherData, setWeatherData] = useState(null);
   const [sunriseSunsetData, setSunriseSunsetData] = useState(null);
+
+  let WeatherIcon = ThermometerIcon;
 
   function handleShowSearch(placeName, weatherDataApi, sunriseSunsetData) {
     if (placeName) {
@@ -28,6 +31,31 @@ function App() {
   function handleDetails(e) {
     setShowDetails(prevShowDetails => !prevShowDetails);
   };
+
+  // getting forecast data for next days
+  function getDailyForecast() {
+    if (!weatherData?.properties?.timeseries) return [];
+
+    let filterForecastDataDaily = weatherData.properties.timeseries.filter((item) => {
+      let hour = new Date(item.time).getUTCHours();
+      return hour === 12;
+    })
+
+    let mapForecastDataDaily = filterForecastDataDaily.map((item, index) => {
+      const date = new Date(item.time);
+      const day = date.getUTCDate();
+      const month = date.toLocaleString('en-GB', { month: 'short' });
+
+      return {
+        date: `${day} ${month}`,
+        temperature: Math.round(item.data.instant.details.air_temperature),
+        symbolCode: item.data?.next_6_hours?.summary?.symbol_code || WeatherIcon,
+        index
+      };
+    });
+
+    return mapForecastDataDaily;
+  }
 
   // getting forecast data for next 24h
   function getHourlyForecast() {
@@ -127,20 +155,27 @@ function App() {
           <div className="flex flex-col space-between gap-[9px] pt-[9px]">
             <div className="w-[318px] h-[85px]  border-ghost_white/30 bg-black/40 flex items-center justify-center gap-5">
               <div className="relative flex w-full snap-x snap-mandatory gap-5 overflow-x-auto">
-                {/* use mapping here! */}
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-                <WeatherScroll snapStyle="shrink-0 snap-center" />
-
-
+                {getDailyForecast().map((forecastDaily) => (
+                  <WeatherScroll
+                    snapStyle="shrink-0 snap-center"
+                    key={forecastDaily.index}
+                    date={forecastDaily.date}
+                    tempDaily={forecastDaily.temperature}
+                    symbolCodeDaily={forecastDaily.symbolCode}
+                  />))}
               </div>
             </div>
             <div className="w-[318px] h-[85px]  border-ghost_white/30 bg-black/40 flex items-center justify-center gap-5 rounded-b-lg">
               <div className="relative flex w-full snap-x snap-mandatory gap-5 overflow-x-auto">
-                {/* use mapping here! */}
-                {getHourlyForecast().map((forecastHourByHour) => (<WeatherScroll snapStyle="shrink-0 snap-center" key={forecastHourByHour.index} time24h={forecastHourByHour.time24h} temperature24h={forecastHourByHour.temperature24h} symbolCode24h={forecastHourByHour.symbolCode24h} sunriseSunsetData={sunriseSunsetData} />))}
+                {getHourlyForecast().map((forecastHourByHour) => (
+                  <WeatherScroll
+                    snapStyle="shrink-0 snap-center"
+                    key={forecastHourByHour.index}
+                    time24h={forecastHourByHour.time24h}
+                    temperature24h={forecastHourByHour.temperature24h}
+                    symbolCode24h={forecastHourByHour.symbolCode24h}
+                    sunriseSunsetData={sunriseSunsetData}
+                  />))}
               </div>
             </div>
           </div>
