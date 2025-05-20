@@ -8,17 +8,31 @@ import SnowIcon from "@mui/icons-material/Snowing";
 import SleetIcon from "@mui/icons-material/CloudySnowing";
 import NightIcon from "@mui/icons-material/Bedtime";
 
-export default function WeatherScroll({ snapStyle, time24h, temperature24h, symbolCode24h }) {
+export default function WeatherScroll({ snapStyle, time24h, temperature24h, symbolCode24h, sunriseSunsetData }) {
 
     let smallInfoStyles = {
         common: "text-[var(--anti-flash-white-500)] font-light text-sm w-[45px] h-[70px]",
     }
 
-    // changing the icon depending on sunrise/sunset time
-
-
     let WeatherIcon = ThermometerIcon;
-    if (symbolCode24h) {
+    let isNighttime = false;
+
+    // changing the icon depending on sunrise/sunset time
+    if (time24h && sunriseSunsetData?.results) {
+
+        const currentTime = parseInt(time24h.replace(':', ''));
+        const sunriseTime = parseInt(sunriseSunsetData.results.sunrise.slice(0, 5).replace(':', ''));
+        const sunsetTime = parseInt(sunriseSunsetData.results.sunset.slice(0, 5).replace(':', ''));
+
+        isNighttime = (currentTime < sunriseTime) || (currentTime > sunsetTime);
+
+        console.log('Is night time:', isNighttime);
+    }
+
+    if (isNighttime) {
+        WeatherIcon = NightIcon;
+    }
+    if (symbolCode24h && !isNighttime) {
         if (symbolCode24h.includes("rain")) {
             WeatherIcon = RainIcon;
         } else if (symbolCode24h.includes("snow")) {
