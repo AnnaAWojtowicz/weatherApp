@@ -157,6 +157,7 @@ function App() {
               <div className="relative flex w-full snap-x snap-mandatory gap-5 overflow-x-auto">
                 {getDailyForecast().map((forecastDaily) => (
                   <WeatherScroll
+                    type="daily"
                     snapStyle="shrink-0 snap-center"
                     key={forecastDaily.index}
                     date={forecastDaily.date}
@@ -169,6 +170,7 @@ function App() {
               <div className="relative flex w-full snap-x snap-mandatory gap-5 overflow-x-auto">
                 {getHourlyForecast().map((forecastHourByHour) => (
                   <WeatherScroll
+                    type="hourly"
                     snapStyle="shrink-0 snap-center"
                     key={forecastHourByHour.index}
                     time24h={forecastHourByHour.time24h}

@@ -8,7 +8,7 @@ import SnowIcon from "@mui/icons-material/Snowing";
 import SleetIcon from "@mui/icons-material/CloudySnowing";
 import NightIcon from "@mui/icons-material/Bedtime";
 
-export default function WeatherScroll({ snapStyle, time24h, temperature24h, symbolCode24h, sunriseSunsetData, date, tempDaily, symbolCodeDaily }) {
+export default function WeatherScroll({ snapStyle, type, time24h, temperature24h, symbolCode24h, sunriseSunsetData, date, tempDaily, symbolCodeDaily }) {
 
     let smallInfoStyles = {
         common: "text-[var(--anti-flash-white-500)] font-light text-sm w-[45px] h-[70px]",
@@ -67,8 +67,8 @@ export default function WeatherScroll({ snapStyle, time24h, temperature24h, symb
 
     return (
         <div className={`${smallInfoStyles.common} flex flex-col items-center justify-between ${snapStyle}`}>
-            <div className="whitespace-nowrap">{time24h}</div>
-            <div>{temperature24h} °C</div>
+            <div className="whitespace-nowrap">{type === "daily" ? date : time24h}</div>
+            <div>{type === "daily" ? tempDaily : temperature24h} °C</div>
             <div><WeatherIcon /></div>
         </div>
     )
