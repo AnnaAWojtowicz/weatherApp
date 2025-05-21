@@ -17,21 +17,26 @@ export default function WeatherScroll({ snapStyle, type, time24h, temperature24h
     let WeatherIcon = ThermometerIcon;
     let isNighttime = false;
 
-    // changing the icon depending on sunrise/sunset time
-    if (time24h && sunriseSunsetData?.results) {
+    // changing the icon depending on sunrise/sunset time + check for polar day/night
 
-        const currentTime = parseInt(time24h.replace(':', ''));
-        const sunriseTime = parseInt(sunriseSunsetData.results.sunrise.slice(0, 5).replace(':', ''));
-        const sunsetTime = parseInt(sunriseSunsetData.results.sunset.slice(0, 5).replace(':', ''));
+    let sunriseTime = '--:--';
+    let sunsetTime = '--:--';
 
-        isNighttime = (currentTime < sunriseTime) || (currentTime > sunsetTime);
-    }
+    if (time24h && sunriseSunsetData?.results?.sunrise && sunriseSunsetData?.results?.sunset) {
+        try {
+            const currentTime = parseInt(time24h.replace(':', ''));
+            sunriseTime = parseInt(sunriseSunsetData.results.sunrise.slice(0, 5).replace(':', ''));
+            sunsetTime = parseInt(sunriseSunsetData.results.sunset.slice(0, 5).replace(':', ''));
 
-    if (isNighttime) {
-        WeatherIcon = NightIcon;
+            isNighttime = (currentTime < sunriseTime) || (currentTime > sunsetTime);
+        } catch (error) {
+            console.log('Polar day/night detected or invalid sunrise/sunset data');
+            isNighttime = false;
+        }
     }
 
     const symbolCode = type === 'daily' ? symbolCodeDaily : symbolCode24h;
+
     if (symbolCode && !isNighttime) {
         if (symbolCode.includes("rain")) {
             WeatherIcon = RainIcon;

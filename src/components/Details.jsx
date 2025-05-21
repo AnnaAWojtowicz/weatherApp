@@ -35,8 +35,8 @@ export default function Details({ executeHandleDetails, weatherData, sunriseSuns
     const humidity = Math.round(weatherData.properties.timeseries[0].data.instant.details.relative_humidity);
     const cloudCover = Math.round(weatherData.properties.timeseries[0].data.instant.details.
         cloud_area_fraction);
-    const sunrise = sunriseSunsetData.results.sunrise.slice(0, 5);
-    const sunset = sunriseSunsetData.results.sunset.slice(0, 5);
+    const sunrise = sunriseSunsetData.results?.sunrise?.slice(0, 5) || '--:--';
+    const sunset = sunriseSunsetData.results?.sunset?.slice(0, 5) || '--:--';
 
 
     return (
