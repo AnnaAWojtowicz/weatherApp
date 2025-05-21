@@ -30,37 +30,39 @@ export default function WeatherScroll({ snapStyle, type, time24h, temperature24h
     if (isNighttime) {
         WeatherIcon = NightIcon;
     }
-    if (symbolCode24h && !isNighttime) {
-        if (symbolCode24h.includes("rain")) {
+
+    const symbolCode = type === 'daily' ? symbolCodeDaily : symbolCode24h;
+    if (symbolCode && !isNighttime) {
+        if (symbolCode.includes("rain")) {
             WeatherIcon = RainIcon;
-        } else if (symbolCode24h.includes("snow")) {
+        } else if (symbolCode.includes("snow")) {
             WeatherIcon = SnowIcon;
         }
-        else if (symbolCode24h.includes("fog")) {
+        else if (symbolCode.includes("fog")) {
             WeatherIcon = FogIcon;
         }
-        else if (symbolCode24h.includes("cloud")) {
+        else if (symbolCode.includes("cloud")) {
             WeatherIcon = CloudIcon;
         }
-        else if (symbolCode24h.includes("thunder")) {
+        else if (symbolCode.includes("thunder")) {
             WeatherIcon = ThunderIcon;
         }
-        else if (symbolCode24h.includes("clear")) {
+        else if (symbolCode.includes("clear")) {
             WeatherIcon = SunIcon;
         }
-        else if (symbolCode24h.includes("partly")) {
+        else if (symbolCode.includes("partly")) {
             WeatherIcon = CloudIcon;
         }
-        else if (symbolCode24h.includes("overcast")) {
+        else if (symbolCode.includes("overcast")) {
             WeatherIcon = CloudIcon;
         }
-        else if (symbolCode24h.includes("sleet")) {
+        else if (symbolCode.includes("sleet")) {
             WeatherIcon = SleetIcon;
         }
-        else if (symbolCode24h.includes("showers")) {
+        else if (symbolCode.includes("showers")) {
             WeatherIcon = RainIcon;
         }
-        else if (symbolCode24h.includes("fair")) {
+        else if (symbolCode.includes("fair")) {
             WeatherIcon = SunIcon;
         }
     }
