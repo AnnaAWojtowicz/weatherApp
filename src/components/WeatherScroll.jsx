@@ -30,47 +30,47 @@ export default function WeatherScroll({ snapStyle, type, time24h, temperature24h
 
             isNighttime = (currentTime < sunriseTime) || (currentTime > sunsetTime);
         } catch (error) {
-            console.log('Polar day/night detected or invalid sunrise/sunset data');
             isNighttime = false;
         }
     }
 
     const symbolCode = type === 'daily' ? symbolCodeDaily : symbolCode24h;
 
-    if (symbolCode && !isNighttime) {
-        if (symbolCode.includes("rain")) {
-            WeatherIcon = RainIcon;
-        } else if (symbolCode.includes("snow")) {
-            WeatherIcon = SnowIcon;
-        }
-        else if (symbolCode.includes("fog")) {
-            WeatherIcon = FogIcon;
-        }
-        else if (symbolCode.includes("cloud")) {
-            WeatherIcon = CloudIcon;
-        }
-        else if (symbolCode.includes("thunder")) {
-            WeatherIcon = ThunderIcon;
-        }
-        else if (symbolCode.includes("clear")) {
-            WeatherIcon = SunIcon;
-        }
-        else if (symbolCode.includes("partly")) {
-            WeatherIcon = CloudIcon;
-        }
-        else if (symbolCode.includes("overcast")) {
-            WeatherIcon = CloudIcon;
-        }
-        else if (symbolCode.includes("sleet")) {
-            WeatherIcon = SleetIcon;
-        }
-        else if (symbolCode.includes("showers")) {
-            WeatherIcon = RainIcon;
-        }
-        else if (symbolCode.includes("fair")) {
-            WeatherIcon = SunIcon;
+    if (isNighttime) {
+        WeatherIcon = NightIcon;
+    } else if (typeof symbolCode === 'string') {
+        switch (true) {
+            case symbolCode.includes("rain"):
+            case symbolCode.includes("showers"):
+                WeatherIcon = RainIcon;
+                break;
+            case symbolCode.includes("snow"):
+                WeatherIcon = SnowIcon;
+                break;
+            case symbolCode.includes("fog"):
+                WeatherIcon = FogIcon;
+                break;
+            case symbolCode.includes("cloud"):
+            case symbolCode.includes("partly"):
+            case symbolCode.includes("overcast"):
+                WeatherIcon = CloudIcon;
+                break;
+            case symbolCode.includes("thunder"):
+                WeatherIcon = ThunderIcon;
+                break;
+            case symbolCode.includes("clear"):
+            case symbolCode.includes("fair"):
+                WeatherIcon = SunIcon;
+                break;
+            case symbolCode.includes("sleet"):
+                WeatherIcon = SleetIcon;
+                break;
+            default:
+                WeatherIcon = ThermometerIcon;
         }
     }
+
+
 
     return (
         <div className={`${smallInfoStyles.common} flex flex-col items-center justify-between ${snapStyle}`}>
