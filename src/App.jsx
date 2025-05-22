@@ -7,6 +7,7 @@ import WeatherScroll from "./components/WeatherScroll";
 import './App.css';
 import "./index.css";
 import ThermometerIcon from "@mui/icons-material/Thermostat";
+import { calculateFeelsLike } from "./api/feelsLike";
 
 
 function App() {
@@ -31,6 +32,22 @@ function App() {
   function handleDetails(e) {
     setShowDetails(prevShowDetails => !prevShowDetails);
   };
+
+
+  // calculate feels like temperature
+  const getFeelsLikeTemp = () => {
+    if (!weatherData?.properties?.timeseries) return null;
+
+    const temperature = weatherData.properties.timeseries[0].data.instant.details.air_temperature;
+    const humidity = weatherData.properties.timeseries[0].data.instant.details.relative_humidity;
+    const windSpeed = weatherData.properties.timeseries[0].data.instant.details.wind_speed;
+
+    const feelsLike = calculateFeelsLike(temperature, humidity, windSpeed);
+    return Math.round(feelsLike);
+  };
+
+
+
 
   // getting forecast data for next days
   function getDailyForecast() {
@@ -145,8 +162,8 @@ function App() {
             }
 
             {!showDetails ?
-              <MainPart executeHandleDetails={handleDetails} weatherData={weatherData} /> :
-              <Details executeHandleDetails={handleDetails} weatherData={weatherData} sunriseSunsetData={sunriseSunsetData} />
+              <MainPart executeHandleDetails={handleDetails} weatherData={weatherData} feelsLikeTemp={getFeelsLikeTemp()} /> :
+              <Details executeHandleDetails={handleDetails} weatherData={weatherData} sunriseSunsetData={sunriseSunsetData} feelsLikeTemp={getFeelsLikeTemp()} />
             }
           </div>
         </div>

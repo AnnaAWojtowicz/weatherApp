@@ -1,7 +1,7 @@
 import ExitIcon from "@mui/icons-material/Close";
 
 
-export default function Details({ executeHandleDetails, weatherData, sunriseSunsetData }) {
+export default function Details({ executeHandleDetails, weatherData, sunriseSunsetData, feelsLikeTemp }) {
 
     let detailsStyles = {
         common: "flex justify-between text-[var(--anti-flash-white-500)] font-light text-sm",
@@ -54,8 +54,8 @@ export default function Details({ executeHandleDetails, weatherData, sunriseSuns
                                 </div>
                             </div>
                             <div>
-                                <div className={`${detailsStyles.common}`}><span>Temperature</span><span>{temp}°C</span></div>
-                                <div className={`${detailsStyles.common}`}><span>Feels like</span><span>20°C</span></div>
+                                <div className={`${detailsStyles.common}`}><span>Temperature</span><span>{temp} °C</span></div>
+                                <div className={`${detailsStyles.common}`}><span>Feels like</span><span>{feelsLikeTemp} °C</span></div>
                                 <div className={`${detailsStyles.common}`}><span>Wind</span><span>{wind} m/s</span></div>
                                 <div className={`${detailsStyles.common}`}><span>Rain</span><span>{percip} mm</span></div>
                             </div>

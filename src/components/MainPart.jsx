@@ -9,7 +9,8 @@ import SleetIcon from "@mui/icons-material/CloudySnowing";
 import ArrowDown from "@mui/icons-material/ArrowDropDown";
 import getWeatherNow from "../api/getWeatherNow";
 
-export default function MainPart({ executeHandleDetails, weatherData }) {
+
+export default function MainPart({ executeHandleDetails, weatherData, feelsLikeTemp }) {
 
     let mainPartStyles = {
         common: "text-[var(--anti-flash-white-500)] font-light",
@@ -17,7 +18,7 @@ export default function MainPart({ executeHandleDetails, weatherData }) {
         mainTemp: "text-6xl",
     };
 
-    // need to fix this part: when nothing is searched CurrencyYenTwoTone, it should show the weather for current position
+    // need to fix this part: when nothing is searched, it should show the weather for current position
     if (!weatherData) {
         return <div className="text-white text-center"></div>;
     }
@@ -25,7 +26,8 @@ export default function MainPart({ executeHandleDetails, weatherData }) {
         air_temperature);
     const wind = Math.round(weatherData.properties.timeseries[0].data.instant.details.
         wind_speed);
-    const percip = Math.round(weatherData.properties.timeseries[0].data.next_1_hours.details.precipitation_amount)
+    const percip = Math.round(weatherData.properties.timeseries[0].data.next_1_hours.details.precipitation_amount);
+
 
     let WeatherIcon = ThermometerIcon;
     let weatherIconCode = weatherData.properties.timeseries[0].data.next_1_hours.summary.symbol_code;
@@ -77,7 +79,7 @@ export default function MainPart({ executeHandleDetails, weatherData }) {
                                 <span className={`${mainPartStyles.twoLinesStyle}`}><div className={`${mainPartStyles.common} ${mainPartStyles.mainTemp}`}>{temp}°C</div></span>
                                 <span className={`${mainPartStyles.twoLinesStyle} text-sm`}><div className={`${mainPartStyles.common}`}>percip.</div><div className={`${mainPartStyles.common}`}>{percip} mm</div></span>
                             </div>
-                            <div className={`${mainPartStyles.common} text-center`}>feels like 20°C</div>
+                            <div className={`${mainPartStyles.common} text-center`}>feels like {feelsLikeTemp} °C</div>
                         </div>
                         <button className={`${mainPartStyles.twoLinesStyle}`} onClick={executeHandleDetails}>
                             <div className={`${mainPartStyles.common} text-sm`}>details</div>
