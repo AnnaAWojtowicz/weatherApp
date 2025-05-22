@@ -153,19 +153,6 @@ function App() {
 
         <div className="max-w-[320px] h-[190px] border-ghost_white/30 bg-black/20 flex items-center justify-center rounded-b-lg">
           <div className="flex flex-col space-between gap-[9px] pt-[9px]">
-            <div className="w-[318px] h-[85px]  border-ghost_white/30 bg-black/40 flex items-center justify-center gap-5 ">
-              <div className="relative flex w-full snap-x snap-mandatory gap-5 overflow-x-auto px-1.5">
-                {getDailyForecast().map((forecastDaily) => (
-                  <WeatherScroll
-                    type="daily"
-                    snapStyle="shrink-0 snap-center"
-                    key={forecastDaily.index}
-                    date={forecastDaily.date}
-                    tempDaily={forecastDaily.temperature}
-                    symbolCodeDaily={forecastDaily.symbolCode}
-                  />))}
-              </div>
-            </div>
             <div className="w-[318px] h-[85px]  border-ghost_white/30 bg-black/40 flex items-center justify-center gap-5 rounded-b-lg">
               <div className="relative flex w-full snap-x snap-mandatory gap-5 overflow-x-auto px-1">
                 {getHourlyForecast().map((forecastHourByHour) => (
@@ -180,6 +167,20 @@ function App() {
                   />))}
               </div>
             </div>
+            <div className="w-[318px] h-[85px]  border-ghost_white/30 bg-black/40 flex items-center justify-center gap-5 ">
+              <div className="relative flex w-full snap-x snap-mandatory gap-5 overflow-x-auto px-1.5">
+                {getDailyForecast().map((forecastDaily) => (
+                  <WeatherScroll
+                    type="daily"
+                    snapStyle="shrink-0 snap-center"
+                    key={forecastDaily.index}
+                    date={forecastDaily.date}
+                    tempDaily={forecastDaily.temperature}
+                    symbolCodeDaily={forecastDaily.symbolCode}
+                  />))}
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
