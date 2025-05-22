@@ -74,6 +74,7 @@ export default function WeatherScroll({ snapStyle, type, time24h, temperature24h
 
     return (
         <div className={`${smallInfoStyles.common} flex flex-col items-center justify-between ${snapStyle} scrollbar-hide`}>
+
             <div className="whitespace-nowrap">{type === "daily" ? date : time24h}</div>
             <div>{type === "daily" ? tempDaily : temperature24h} °C</div>
             <div><WeatherIcon /></div>
