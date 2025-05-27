@@ -38,7 +38,7 @@ function App() {
     }
   };
 
-
+  // getting a default location and weather data when the app is first loaded
   useEffect(() => {
     if (!weatherData && !hasInitialLocation) {
       navigator.geolocation.getCurrentPosition(
@@ -75,7 +75,7 @@ function App() {
   let WeatherIcon = ThermometerIcon;
 
   function handleShowSearch(placeName, weatherDataApi, sunriseSunsetData) {
-    if (placeName) {
+    if (placeName && weatherDataApi && sunriseSunsetData) {
       setSearchedPlace(placeName);
       setWeatherData(weatherDataApi);
       setSunriseSunsetData(sunriseSunsetData);
