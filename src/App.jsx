@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Place from './components/Place';
 import Search from './components/Search';
 import MainPart from './components/MainPart';
@@ -8,7 +8,8 @@ import './App.css';
 import "./index.css";
 import ThermometerIcon from "@mui/icons-material/Thermostat";
 import { calculateFeelsLike } from "./api/feelsLike";
-
+import getWeatherNow from './api/getWeatherNow';
+import getSunriseSunset from './api/getSunriseSunset';
 
 function App() {
 
@@ -16,6 +17,60 @@ function App() {
   const [searchedPlace, setSearchedPlace] = useState("Search place");
   const [weatherData, setWeatherData] = useState(null);
   const [sunriseSunsetData, setSunriseSunsetData] = useState(null);
+  const [hasInitialLocation, setHasInitialLocation] = useState(false);
+
+  // geting the default location name when the user opens the app
+  const getLocationName = async (lat, lon) => {
+    try {
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10`
+      );
+      const data = await response.json();
+
+      return data.address?.city ||
+        data.address?.town ||
+        data.address?.village ||
+        data.address?.county ||
+        "Current Location";
+    } catch (error) {
+      console.error('Error getting location name:', error);
+      return "Current Location";
+    }
+  };
+
+
+  useEffect(() => {
+    if (!weatherData && !hasInitialLocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          try {
+            const coords = {
+              lat: position.coords.latitude,
+              lon: position.coords.longitude
+            };
+
+            const placeName = await getLocationName(coords.lat, coords.lon);
+            setSearchedPlace(placeName);
+
+            const weatherData = await getWeatherNow(coords);
+            setWeatherData(weatherData);
+
+            const sunriseSunsetData = await getSunriseSunset(coords);
+            setSunriseSunsetData(sunriseSunsetData);
+
+            setHasInitialLocation(true);
+          } catch (error) {
+            console.error('Error fetching initial weather data:', error);
+          }
+        },
+        (error) => {
+          console.error('Error getting location:', error);
+          setSearchedPlace("Search place");
+        }
+      );
+    }
+  }, [weatherData, hasInitialLocation]);
+
 
   let WeatherIcon = ThermometerIcon;
 
@@ -163,7 +218,11 @@ function App() {
 
             {!showDetails ?
               <MainPart executeHandleDetails={handleDetails} weatherData={weatherData} feelsLikeTemp={getFeelsLikeTemp()} /> :
-              <Details executeHandleDetails={handleDetails} weatherData={weatherData} sunriseSunsetData={sunriseSunsetData} feelsLikeTemp={getFeelsLikeTemp()} />
+              <Details
+                executeHandleDetails={handleDetails}
+                weatherData={weatherData}
+                sunriseSunsetData={sunriseSunsetData}
+                feelsLikeTemp={getFeelsLikeTemp()} />
             }
           </div>
         </div>

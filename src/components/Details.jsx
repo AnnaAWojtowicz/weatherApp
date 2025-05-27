@@ -2,16 +2,26 @@ import ExitIcon from "@mui/icons-material/Close";
 
 
 export default function Details({ executeHandleDetails, weatherData, sunriseSunsetData, feelsLikeTemp }) {
+    console.log('Sunrise data structure:', {
+        raw: sunriseSunsetData?.results?.sunrise,
+        formatted: sunriseSunsetData?.results?.sunrise?.slice(0, 5)
+    });
 
     let detailsStyles = {
         common: "flex justify-between text-[var(--anti-flash-white-500)] font-light text-sm",
         date: "text-[var(--anti-flash-white-500)] font-light text-3xl items-center",
     };
 
-    if (!weatherData || !sunriseSunsetData) {
-        return <div className="text-white text-center">Loading weather details...</div>;
-    }
 
+    if (!weatherData?.properties?.timeseries?.[0] || !sunriseSunsetData?.results) {
+        console.log('Which data is missing:', {
+            hasWeatherData: !!weatherData?.properties?.timeseries?.[0],
+            hasSunriseSunset: !!sunriseSunsetData?.results
+        });
+        return (
+            <div className="text-white text-center">Loading weather details...</div>
+        );
+    }
 
 
     // date formatting

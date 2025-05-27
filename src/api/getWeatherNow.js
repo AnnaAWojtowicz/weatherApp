@@ -2,12 +2,16 @@
 
 export default async function getWeatherNow({ lat, lon }) {
 
-    const getWeatherApi = `https://api.met.no/weatherapi/locationforecast/2.0/complete?lat=${lat}&lon=${lon}`;
+    const getWeatherApi = `https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=${lat}&lon=${lon}`;
 
     try {
         const response = await fetch(getWeatherApi, {
+            method: 'GET',
             headers: {
-                'User-Agent': 'weatherApp/1.0 github.com/yourusername/weatherApp'
+                'User-Agent': 'weatherApp/1.0 github.com/yourusername/weatherApp',
+                'Accept': 'application/json',
+                'Origin': window.location.origin
+
             }
         });
         if (!response.ok) {
