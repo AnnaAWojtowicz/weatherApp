@@ -25,6 +25,7 @@ This is a simple and responsive WeatherApp built with React. It allows users to 
 ### Fonts & Icons:
 
 Corey Hu (n.d.) Urbanist. Google Fonts. Retrieved 01.05.2025 from: https://fonts.google.com/specimen/Urbanist?query=urbanist&icon.size=24&icon.color=%231f1f1f;
+Flaticon (n.d.). Wind. Retrieved 02.06.2025 from: https://www.flaticon.com/free-icon/wind_615532?term=weather&related_id=615532;
 
 ### API:
 
