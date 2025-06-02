@@ -2,7 +2,7 @@
 
 ![What If Weather App Screenshot](https://private-user-images.githubusercontent.com/87201797/450141523-98d27484-8b20-46c7-aa93-96a5b1ebbc24.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDg4NjM1OTIsIm5iZiI6MTc0ODg2MzI5MiwicGF0aCI6Ii84NzIwMTc5Ny80NTAxNDE1MjMtOThkMjc0ODQtOGIyMC00NmM3LWFhOTMtOTZhNWIxZWJiYzI0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA2MDIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjAyVDExMjEzMlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWIxMDRmZjY4ZmE0MGEyOGIzYzZiYmUzOWI0ZjFjNTUzNmQxZDRkMGNlMGZlMWE3YTU2ZDI1YjE5YWEzODkwMmEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.v5pyGHXBYI5462Su1A6T10V78koFIMfXHOLR3cG0JOI)
 
-What If Weather is a fast and responsive React-based app that lets you explore real-time weather conditions across the globe. Just type in any city and instantly get key details like temperature, humidity, wind speed — plus sunrise and sunset times — using data from the MET Weather API and Sunrise & Sunset Times API.
+_What If Weather_ is a fast and responsive React-based app that lets you explore real-time weather conditions across the globe. Just type in any city and instantly get key details like temperature, humidity, wind speed — plus sunrise and sunset times — using data from the MET Weather API and Sunrise & Sunset Times API.
 
 ## Features
 
@@ -66,6 +66,7 @@ Flaticon (n.d.). Wind. Retrieved 02.06.2025 from: https://www.flaticon.com/free-
 ### API:
 
 Met Weather API: https://api.met.no/;
+
 Sunset and Sunrise Times API: https://sunrisesunset.io/api/;
 
 ### Photos:
